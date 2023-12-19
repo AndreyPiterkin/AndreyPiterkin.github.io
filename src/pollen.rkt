@@ -3,8 +3,7 @@
 (require txexpr)
 
 (provide (all-defined-out))
-(define headline (default-tag-function 'h2 #:style
-                                       "white-space:nowrap;"))
+(define headline (default-tag-function 'h2 #:class "headline"))
 (define items (default-tag-function 'ul #:class "dash"))
 (define item (default-tag-function 'li))
 (define lang (default-tag-function 'em #:style "font-style: normal;
