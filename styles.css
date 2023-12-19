@@ -12,11 +12,22 @@ body {
 }
 
 /* Probably a better way to do this... */
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 900px) {
   body {
-    max-width: 95%;
+    max-width: 50%;
+  }
+
+  .headline {
+    white-space: nowrap;
   }
 }
+
+@media screen and (max-width: 899px) {
+  .headline {
+    white-space: normal;
+  }
+}
+
 
 h2 {
   font: inherit;
