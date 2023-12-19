@@ -8,6 +8,8 @@
 (define item (default-tag-function 'li))
 (define lang (default-tag-function 'em #:style "font-style: normal;
                                    font-weight: 500;"))
+(define (link #:url url #:target [target "_blank"] text)
+  (txexpr 'a `((href ,url) (target ,target)) `(,text)))
 
 (define (rows #:gap [gap 4] #:align [alignment "stretch"] . els)
     (define txexprs (filter txexpr? els))

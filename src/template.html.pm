@@ -11,6 +11,17 @@
         <link rel="stylesheet" type="text/css" href="/styles.css" />
     </head>
     <body>
-        ◊(->html doc)
+    ◊(->html 
+        ◊cols[#:gap 5]{
+            ◊rows[#:gap 1]{
+                ◊headline{Andrey Piterkin}
+                ◊cols[#:gap 1]{
+                    ◊link[#:url "/files/AndreyPiterkin2025.pdf"]{cv}
+                    ◊link[#:url "https://www.linkedin.com/in/andreypiterkin"]{linkedin}
+                    ◊link[#:url "https://www.github.com/AndreyPiterkin"]{github}
+                }
+            }
+            ◊|doc|
+        })
     </body>
-</html>
+    </html>
