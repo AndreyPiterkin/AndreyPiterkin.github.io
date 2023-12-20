@@ -11,19 +11,21 @@
 (define (link #:url url #:target [target "_blank"] text)
   (txexpr 'a `((href ,url) (target ,target)) `(,text)))
 
-(define (rows #:gap [gap 4] #:align [alignment "stretch"] . els)
+(define (rows #:gap [gap 4] #:align [alignment "stretch"] #:class [class
+                                                                    ""] . els)
     (define txexprs (filter txexpr? els))
     (define style (format "display: flex; flex-direction: column;
                           row-gap: ~aem; align-self: ~a;" gap alignment))
-    (txexpr 'div `((style ,style)) (map flex-item
+    (txexpr 'div `((class ,class) (style ,style)) (map flex-item
                           txexprs)))
 
-(define (cols #:gap [gap 4] #:align [alignment "stretch"] . els)
+(define (cols #:gap [gap 4] #:align [alignment "stretch"] #:class [class
+                                                                    ""] . els)
     (define txexprs (filter txexpr? els))
     (define style (format "display: flex; flex-direction: row;
                           column-gap: ~aem; align-self: ~a;" gap
                           alignment))
-    (txexpr 'div `((style ,style)) (map flex-item
+    (txexpr 'div `((class ,class) (style ,style)) (map flex-item
                           txexprs)))
 
 (define (empty-vspace #:size [size 4])

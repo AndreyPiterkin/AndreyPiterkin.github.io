@@ -11,8 +11,7 @@ body {
   font-family: 'Literata', serif;
 }
 
-/* Probably a better way to do this... */
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1301px) {
   body {
     max-width: 50%;
   }
@@ -22,10 +21,42 @@ body {
   }
 }
 
-@media screen and (max-width: 899px) {
+@media screen and (max-width: 1300px) {
+  body {
+    max-width: 60%;
+  }
+
+  .headline {
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 1299px) {
   .headline {
     white-space: normal;
   }
+
+  .headline-box {
+    margin: 1em;
+  }
+
+}
+
+@media screen and (max-width: 900px) {
+  body {
+    max-width: 80%;
+  }
+
+  .headline-box {
+    flex-direction: column !important;
+    margin: 2em;
+  }
+
+
+  .headline {
+    white-space: nowrap;
+  }
+
 }
 
 
