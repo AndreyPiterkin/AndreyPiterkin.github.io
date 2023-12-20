@@ -12,7 +12,7 @@
     </head>
     <body>
     ◊(->html 
-        ◊cols[#:gap 5]{
+        ◊cols[#:gap 5 #:class "headline-box"]{
             ◊rows[#:gap 1]{
                 ◊headline{Andrey Piterkin}
                 ◊cols[#:gap 1]{
