@@ -6,7 +6,7 @@
 
     ◊h3{Right now, I am}
     ◊items{
-        ◊item{Systematically designing a toy OS in ◊lang{Rust}}
+        ◊item{Systematically designing a ◊link[#:url "https://www.lukejianu.com/small-rust-os/index.html"]{toy OS} in ◊lang{Rust}}
         ◊item{Creating an ECS-based planet simulator in ◊lang{C++}}
         ◊item{Experimenting with ◊lang{Clojure}}
     }
