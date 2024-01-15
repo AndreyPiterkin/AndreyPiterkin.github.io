@@ -8,14 +8,13 @@
     ◊items{
         ◊item{Systematically designing a ◊link[#:url "https://www.lukejianu.com/small-rust-os/index.html"]{toy OS} in ◊lang{Rust}}
         ◊item{Creating an ECS-based planet simulator in ◊lang{C++}}
-        ◊item{Experimenting with ◊lang{Clojure}}
+        ◊item{Working at ◊link[#:url "https://www.mathworks.com"]{MathWorks} in ◊em{Control Design Automation} for Spring 2024}
+        ◊item{Taking Compiler Design (CS 4410)}
     }
 
     ◊empty-vspace[#:size 2]
     ◊h3{Soon, I will be}
     ◊items{
-        ◊item{Working at ◊link[#:url "https://www.mathworks.com"]{MathWorks} in ◊em{Control Design Automation} for Spring 2024}
-        ◊item{Taking Compiler Design (CS 4410)}
         ◊item{Working at ◊link[#:url "https://www.databricks.com"]{Databricks} 
             for Summer 2024}
         ◊item{Working at ◊link[#:url "https://www.datadoghq.com"]{Datadog} 
