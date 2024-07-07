@@ -1,7 +1,7 @@
 #lang pollen
 
 ◊rows[#:gap 0]{
-    ◊p{I am Andrey, and I am a Senior studying Computer Science at Northeastern University. I am passionate about ◊em{systems programming}, ◊em{systematic design}, and ◊em{performant simulation}.}
+    ◊p{I am Andrey, and I am a Senior studying Computer Science at Northeastern University. I am passionate about ◊em{systems programming}, ◊em{systematic design}, and ◊em{simulation}.}
     ◊empty-vspace[#:size 2]
 
     ◊h3{Recently, I was}
