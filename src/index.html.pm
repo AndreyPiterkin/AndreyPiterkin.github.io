@@ -10,6 +10,7 @@
         ◊item{Taking Compiler Design (CS 4410)}
     }
 
+    ◊empty-vspace[#:size 2]
     ◊h3{Right now, I am}
     ◊items{
         ◊item{Working at ◊link[#:url "https://www.databricks.com"]{Databricks} on the Money team
