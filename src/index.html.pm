@@ -6,10 +6,10 @@
 
     ◊h3{Recently, I was}
     ◊items{
-        ◊item{Working at ◊link[#:url "https://www.mathworks.com"]{MathWorks} in ◊em{Control Design Automation} for Spring 2024, designing APIs for Matrix operations considering input and output range and reducing C types for generated code.}
+        ◊item{Working at ◊link[#:url "https://www.mathworks.com"]{MathWorks} in ◊em{Control Design Automation} for Spring 2024, improving Simulink C codegen by optimizing type selection.}
         ◊item{Taking Compiler Design (CS 4410)}
         ◊item{Working at ◊link[#:url "https://www.databricks.com"]{Databricks} on the Money team
-            for Summer 2024, improving developer velocity by inventing a new lost cost simulation framework for billable usage.}
+            for Summer 2024, improving load, integration, and chaos testing for the real-time billing pipeline.}
     }
 
     ◊empty-vspace[#:size 2]
@@ -25,6 +25,6 @@
     ◊empty-vspace[#:size 2]
     ◊h3{Soon, I will be}
     ◊items{
-        ◊item{Resuming school and taking Computer Architecture and Theory of Computation.}
+        ◊item{Taking Computer Architecture and Theory of Computation.}
     }
 }
