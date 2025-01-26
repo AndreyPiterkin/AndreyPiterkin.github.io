@@ -39,4 +39,6 @@
 (define (flex-item item)
     item)
 
+(define (archive elem)
+  (txexpr 'div '((style "display: none;")) elem))
 

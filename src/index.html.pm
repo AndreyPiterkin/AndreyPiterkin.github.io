@@ -10,21 +10,23 @@
         ◊item{Taking Compiler Design (CS 4410)}
         ◊item{Working at ◊link[#:url "https://www.databricks.com"]{Databricks} on the Money team
             for Summer 2024, improving load, integration, and chaos testing for the real-time billing pipeline.}
-    }
-
-    ◊empty-vspace[#:size 2]
-    ◊h3{Right now, I am}
-    ◊items{
-        ◊item{Systematically designing a ◊link[#:url "https://www.lukejianu.com/toy-rust-os/index.html"]{toy OS} in ◊lang{Rust}}
-        ◊item{Creating an ECS-based planet simulator in ◊lang{C++}}
-        ◊item{Building a visualization tool for my Compiler}
         ◊item{Working at ◊link[#:url "https://www.datadoghq.com"]{Datadog} 
             for Fall 2024 on the ◊em{Edge Ingress} team.}
     }
 
     ◊empty-vspace[#:size 2]
+    ◊h3{Right now, I am}
+    ◊items{
+        ◊archive{◊item{Systematically designing a ◊link[#:url "https://www.lukejianu.com/toy-rust-os/index.html"]{toy OS} in ◊lang{Rust}}}
+        ◊archive{◊item{Creating an ECS-based planet simulator in ◊lang{C++}}}
+        ◊archive{◊item{Building a visualization tool for my Compiler}}
+        ◊item{Learning Racket's macro system in Hack Your Own Language (CS 3620)}
+        ◊item{Taking Computer Architecture and Theory of Computation}
+    }
+
+    ◊empty-vspace[#:size 2]
     ◊h3{Soon, I will be}
     ◊items{
-        ◊item{Taking Computer Architecture and Theory of Computation.}
+        ◊item{Working at Databricks in Seattle full-time}
     }
 }

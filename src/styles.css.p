@@ -11,17 +11,7 @@ body {
   font-family: 'Literata', serif;
 }
 
-@media screen and (min-width: 1301px) {
-  body {
-    max-width: 50%;
-  }
-
-  .headline {
-    white-space: nowrap;
-  }
-}
-
-@media screen and (max-width: 1300px) {
+@media screen and (min-width: 1300px) {
   body {
     max-width: 60%;
   }
