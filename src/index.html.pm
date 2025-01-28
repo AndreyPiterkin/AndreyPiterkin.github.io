@@ -6,12 +6,12 @@
 
     ◊h3{Recently, I was}
     ◊items{
-        ◊item{Working at ◊link[#:url "https://www.mathworks.com"]{MathWorks} in ◊em{Control Design Automation} for Spring 2024, improving Simulink C codegen by optimizing type selection.}
-        ◊item{Taking Compiler Design (CS 4410)}
-        ◊item{Working at ◊link[#:url "https://www.databricks.com"]{Databricks} on the Money team
-            for Summer 2024, improving load, integration, and chaos testing for the real-time billing pipeline.}
-        ◊item{Working at ◊link[#:url "https://www.datadoghq.com"]{Datadog} 
-            for Fall 2024 on the ◊em{Edge Ingress} team.}
+        ◊item{Working at ◊link[#:url "https://www.mathworks.com"]{MathWorks} in ◊em{Control Design Automation} for Spring 2024, improving Simulink C codegen by optimizing type selection}
+        ◊archive{◊item{Taking Compiler Design (CS 4410)}}
+        ◊item{Working at ◊link[#:url "https://www.databricks.com"]{Databricks} on the ◊em{Money} team
+            for Summer 2024, improving load, integration, and chaos testing for the real-time billing pipeline}
+        ◊item{Working at ◊link[#:url "https://www.datadoghq.com"]{Datadog} on the ◊em{Edge Ingress} team
+            for Fall 2024, enabling search for automation-managed cloud resources}
     }
 
     ◊empty-vspace[#:size 2]
