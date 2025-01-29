@@ -1,13 +1,64 @@
 #lang racket/base
-(require pollen/tag)
-(require txexpr)
+(require pollen/tag
+         txexpr
+         pollen/decode
+         racket/match
+         racket/list
+         racket/function)
 
 (provide (all-defined-out))
 (define headline (default-tag-function 'h2 #:class "headline"))
-(define items (default-tag-function 'ul #:class "dash"))
-(define item (default-tag-function 'li))
 (define lang (default-tag-function 'em #:style "font-style: normal;
                                    font-weight: 500;"))
+(define items (default-tag-function 'ul #:class "dash"))
+
+(struct transformer (pred? transform) #:transparent)
+
+;; Basically a scuffed, unsanitary macro expander
+;; TODO: figure out how to ensure expansion is uniform, if there is some built in expansion for this
+;; (convert to Racket and macro expand?)
+(define (transform x . transformers)
+  (define (apply-transformers x)
+    (for/fold ([xpr x])
+              ([transformer transformers])
+        (if ((transformer-pred? transformer) x)
+            ((transformer-transform transformer) x)
+            x)))
+  (match x
+    [(list) '()]
+    [(list xs ...)
+     (map (lambda (x) (apply transform x transformers)) (apply-transformers x))]
+    [x (apply-transformers x)]))
+
+(define items-transformer
+  (transformer
+    (lambda (x)
+      (match x
+        [(list 'ul (list (list y ...) ...) z ...)
+         #t]
+        [_ #f]))
+    (lambda (x)
+      (match x
+        [(list 'ul (list (list y ...) ...) sublists ...)
+         (define (split-list l)
+           (let loop ([groups '()]
+                      [lst l])
+             (define split-func (negate (curry equal? "\n")))
+             (define prefix (takef lst split-func))
+             (define suffix (dropf lst split-func))
+             (if (null? prefix)
+                 (reverse groups)
+                 (loop (cons prefix groups) (if (null? suffix) suffix (rest suffix))))))
+         `(ul ,y ,@(map (lambda (s) (cons 'li s)) (split-list sublists)))]
+        [_ (error 'expansion-failure "unexpected pattern: ~v" x)]))))
+
+(define (root . elements)
+  (txexpr 'root empty (decode-elements (transform elements items-transformer))))
+
+(module setup racket/base
+  (provide (all-defined-out))
+  (define command-char #\~))
+
 (define (link #:url url #:target [target "_blank"] text)
   (txexpr 'a `((href ,url) (target ,target)) `(,text)))
 
@@ -38,7 +89,3 @@
 
 (define (flex-item item)
     item)
-
-(define (archive elem)
-  (txexpr 'div '((style "display: none;")) elem))
-
