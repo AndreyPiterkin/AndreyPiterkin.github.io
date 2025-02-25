@@ -12,13 +12,13 @@
     </head>
     <body>
     ~(->html 
-        ~cols[#:gap 5 #:class "headline-box"]{
-            ~rows[#:gap 1]{
+        ~flex[cols (gap 5) (class "headline-box")]{
+            ~flex[rows (gap 1)]{
                 ~headline{Andrey Piterkin}
-                ~cols[#:gap 1]{
-                    ~link[#:url "/files/AndreyPiterkin2025.pdf"]{cv}
-                    ~link[#:url "https://www.linkedin.com/in/andreypiterkin"]{linkedin}
-                    ~link[#:url "https://www.github.com/AndreyPiterkin"]{github}
+                ~flex[cols (gap 1)]{
+                    ~link[(url "/files/AndreyPiterkin2025.pdf")]{cv}
+                    ~link[(url "https://www.linkedin.com/in/andreypiterkin")]{linkedin}
+                    ~link[(url "https://www.github.com/AndreyPiterkin")]{github}
                 }
             }
             ~|doc|
