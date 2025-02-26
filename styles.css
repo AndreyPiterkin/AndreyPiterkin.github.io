@@ -18,16 +18,41 @@ body {
 
   .headline {
     white-space: nowrap;
+    float: right;
+    text-align: right;
+  }
+
+  .linktree > a {
+    white-space: nowrap;
+    float: right;
+    text-align: right;
+  }
+
+  .linktree-flex {
+    flex-direction: column !important;
+    row-gap: 0.5em;
   }
 }
 
 @media screen and (max-width: 1299px) {
-  .headline {
+  .headline.* {
     white-space: normal;
+    text-align: right;
+  }
+
+  .linktree > a {
+    white-space: nowrap;
+    float: right;
+    text-align: right;
   }
 
   .headline-box {
     margin: 1em;
+  }
+
+  .linktree-flex {
+    flex-direction: column !important;
+    column-gap: 0.5em;
   }
 
 }
@@ -40,13 +65,18 @@ body {
   .headline-box {
     flex-direction: column !important;
     margin: 2em;
+    column-gap: 0.5em;
   }
 
 
   .headline {
     white-space: nowrap;
+    text-align: center;
   }
 
+  .linktree-flex {
+    flex-direction: row !important;
+  }
 }
 
 
