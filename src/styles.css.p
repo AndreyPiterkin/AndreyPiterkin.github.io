@@ -11,6 +11,56 @@ body {
   font-family: 'Literata', serif;
 }
 
+.statics {
+  margin-left: auto;
+  margin-right: 0;
+  margin-top: -1em;
+}
+
+.nav-item {
+  font-size: 1.3em;
+  font-weight: 590;
+  text-decoration: none;
+  transition: color 0.1s ease-in-out, transform 0.2s ease-in-out, text-decoration 0.1s ease-in-out;
+  display: inline-block; 
+}
+
+.nav-item:hover {
+  color: rgb(48,48,48);
+  transform: translateX(-2px);
+  text-decoration: underline;
+}
+
+.nav-item:hover:after {
+  content: " <";
+  text-decoration: none;
+  display: inline-block;
+  white-space: pre;
+}
+
+
+.nav-item:after {
+  content: " |";
+}
+
+.nav-item.active:after {
+  content: " <";
+  text-decoration: none;
+  display: inline-block;
+  white-space: pre;
+}
+
+
+.nav-bar > .nav-item {
+  text-align: right;
+}
+
+.headline.active {}
+
+.main {
+  margin-top: 1em;
+}
+
 @media screen and (min-width: 1300px) {
   body {
     max-width: 60%;
@@ -18,18 +68,17 @@ body {
 
   .headline {
     white-space: nowrap;
+    float: right;
+    text-align: right;
   }
+  
 }
 
 @media screen and (max-width: 1299px) {
-  .headline {
+  .headline.* {
     white-space: normal;
+    text-align: right;
   }
-
-  .headline-box {
-    margin: 1em;
-  }
-
 }
 
 @media screen and (max-width: 900px) {
@@ -39,12 +88,68 @@ body {
 
   .headline-box {
     flex-direction: column !important;
-    margin: 2em;
   }
 
 
   .headline {
     white-space: nowrap;
+    text-align: center;
+  }
+
+  .statics {
+    margin: auto;
+  }
+
+  .main {
+    margin-top: 0em;
+  }
+
+  .nav-bar-flex {
+    flex-direction: row !important; 
+    column-gap: 1em !important;
+    margin: auto !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  .nav-item {
+    font-size: 1.3em;
+    font-weight: 590;
+    text-decoration: none;
+    transition: text-decoration 0.1s ease-in-out !important;
+    display: block !important; 
+  }
+
+  .nav-item:hover {
+    color: rgb(48,48,48);
+    text-decoration: underline;
+    transform: translate(0px) !important;
+  }
+
+  .nav-item:hover:after {
+    content: "" !important; 
+    text-decoration: none !important;
+    display: block !important
+    white-space: pre !important;
+  }
+
+  .nav-item:after {
+    content: "" !important;
+  }
+
+  .nav-item.active:after {
+    content: "" !important;
+    text-decoration: none !important;
+    display: !important block;
+    white-space: !important pre;
+  }
+
+  .nav-item.active {
+    text-decoration: underline !important;
+  }
+
+  .nav-bar > .nav-item {
+    text-align: center !important;
   }
 
 }

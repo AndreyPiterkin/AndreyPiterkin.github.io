@@ -11,14 +11,16 @@
         <link rel="stylesheet" type="text/css" href="/styles.css" />
     </head>
     <body>
-    ~(->html 
+    ~(->html
         ~flex[cols (gap 5) (class "headline-box")]{
-            ~flex[rows (gap 1)]{
+            ~flex[rows (gap 1) (class "menu")]{
                 ~headline{Andrey Piterkin}
-                ~flex[cols (gap 1)]{
-                    ~link[(url "/files/AndreyPiterkin2025.pdf")]{cv}
-                    ~link[(url "https://www.linkedin.com/in/andreypiterkin")]{linkedin}
-                    ~link[(url "https://www.github.com/AndreyPiterkin")]{github}
+                ~flex[(? "nav-bar-flex") (gap 0.5) (class "nav-bar")]{
+                    ~nav[(url "/experience.html") (target "")]{experience}
+                    ~nav[(url "/blog.html") (target "")]{blog}
+                    ~nav[(url "https://www.linkedin.com/in/andreypiterkin")]{linkedin}
+                    ~nav[(url "https://www.github.com/AndreyPiterkin")]{github}
+                    ~nav[(url "/files/AndreyPiterkin2025.pdf")]{cv}
                 }
             }
             ~|doc|
