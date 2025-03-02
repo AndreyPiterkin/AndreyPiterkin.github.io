@@ -9,7 +9,7 @@
 
 
     ~experience[Databricks (dates "2024/05" "2024/08") (title "Software Engineer Intern")]{
-        ~{Spearheaded live testing for Databricks company-wide billing pipeline in Scala and Apache Spark, reducing component integration test cost by 92%.}
+        ~{Spearheaded live testing for Databricks company-wide billing pipeline in ~plang{Scala} and Apache Spark, reducing component integration test cost by 92%.}
         ~{Built billing test framework in ~plang{Scala}, improving dev velocity from start to deployment by 10+ hours.}
         ~{Targeted complex testing scenarios such as chaos testing, load testing, and automated alert testing.}
     }
