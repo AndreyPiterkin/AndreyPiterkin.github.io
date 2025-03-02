@@ -193,7 +193,7 @@
     `(div ((class "lang"))
           (span ((class "lang-dot") (style ,color-style)))
           (p ((class "lang-name") (style ,name-color-style)) ,name)))
-  (map language->html langs))
+  (map language->html (remove-duplicates langs)))
 
 (define (technologies->html techs)
   (map (default-tag-function 'em) techs))
