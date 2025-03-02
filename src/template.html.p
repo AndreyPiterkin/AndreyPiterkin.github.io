@@ -18,7 +18,6 @@
                     ~headline{Andrey Piterkin}
                     ~flex[(? "nav-bar-flex") (gap 0.5) (class "nav-bar")]{
                         ~nav[(url "/experience.html") (target "")]{experience}
-                        ~nav[(url "/blog.html") (target "")]{blog}
                         ~nav[(url "https://www.linkedin.com/in/andreypiterkin")]{linkedin}
                         ~nav[(url "https://www.github.com/AndreyPiterkin")]{github}
                         ~nav[(url "/files/AndreyPiterkin2025.pdf")]{cv}

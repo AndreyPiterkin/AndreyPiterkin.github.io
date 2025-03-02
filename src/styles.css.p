@@ -295,3 +295,30 @@ ul.dash > li:before {
   text-align: right;
   white-space: nowrap;
 }
+
+.experience-langs {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1em;
+  align-items: center;
+}
+
+.lang {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.25em;
+  align-items: center;
+  margin-top: 0.4em;
+}
+
+.lang-name {
+  margin: 0;
+  display: inline;
+}
+
+.lang-dot {
+    display: inline-block;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+}
