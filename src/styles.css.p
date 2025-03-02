@@ -1,15 +1,41 @@
 #lang pollen
 
-:root {
+root {
 }
 
 /* Centering the page */
 body {
   margin: 3rem auto;
+  padding: 0;
   max-width: 750px; 
   font-size: 1.05em;
   font-family: 'Literata', serif;
 }
+
+.container {
+  min-height: 100%;
+}
+
+.template-content {
+  width: 100%;
+  /*
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  */
+}
+
+.footer {
+  text-align: center;
+  margin-top: auto;
+}
+
+
+/*
+.content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+*/
 
 .statics {
   margin-left: auto;
@@ -38,7 +64,6 @@ body {
   white-space: pre;
 }
 
-
 .nav-item:after {
   content: " |";
 }
@@ -48,6 +73,10 @@ body {
   text-decoration: none;
   display: inline-block;
   white-space: pre;
+}
+
+.nav-item.active {
+  text-decoration: underline;
 }
 
 
@@ -221,3 +250,48 @@ ul.dash > li:before {
     display: table-cell;
 }
 
+.experience-block {
+}
+
+.experience-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.experience-title-name {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0em;
+}
+
+.experience-name {
+  font: inherit;
+  font-size: 1.1em;
+  font-weight: 600;
+  font-style: normal;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+
+.experience-title {
+  font: inherit;
+  font-size: 1.1em;
+  font-weight: 200;
+  font-style: italic;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+
+.experience-date-range {
+  font: inherit;
+  font-size: 1em;
+  font-weight: 100;
+  font-style: italic;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  text-align: right;
+  white-space: nowrap;
+}

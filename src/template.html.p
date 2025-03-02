@@ -12,18 +12,26 @@
     </head>
     <body>
     ~(->html
-        ~flex[cols (gap 5) (class "headline-box")]{
-            ~flex[rows (gap 1) (class "menu")]{
-                ~headline{Andrey Piterkin}
-                ~flex[(? "nav-bar-flex") (gap 0.5) (class "nav-bar")]{
-                    ~nav[(url "/experience.html") (target "")]{experience}
-                    ~nav[(url "/blog.html") (target "")]{blog}
-                    ~nav[(url "https://www.linkedin.com/in/andreypiterkin")]{linkedin}
-                    ~nav[(url "https://www.github.com/AndreyPiterkin")]{github}
-                    ~nav[(url "/files/AndreyPiterkin2025.pdf")]{cv}
+        ~flex[rows (gap 2) (class "container")]{
+            ~flex[cols (gap 5) (class "headline-box")]{
+                ~flex[rows (gap 1) (class "menu")]{
+                    ~headline{Andrey Piterkin}
+                    ~flex[(? "nav-bar-flex") (gap 0.5) (class "nav-bar")]{
+                        ~nav[(url "/experience.html") (target "")]{experience}
+                        ~nav[(url "/blog.html") (target "")]{blog}
+                        ~nav[(url "https://www.linkedin.com/in/andreypiterkin")]{linkedin}
+                        ~nav[(url "https://www.github.com/AndreyPiterkin")]{github}
+                        ~nav[(url "/files/AndreyPiterkin2025.pdf")]{cv}
+                    }
+                }
+                ~div[#:class "template-content"]{
+                    ~|doc|
                 }
             }
-            ~|doc|
-        })
+            ~div[#:class "footer"]{
+                ~p{© 2025 Andrey Piterkin}
+            }
+        }
+    )
     </body>
     </html>

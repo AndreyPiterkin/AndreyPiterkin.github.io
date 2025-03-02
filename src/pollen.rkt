@@ -120,12 +120,19 @@
 (define-syntax (experience stx)
   (syntax-parse stx
     #:datum-literals (dates)
-    [(_ name:id (dates d1 d2) (b1 ...))
-     #`(rt:experience (work-exp #,(syntax->datum #'name) d1 d2 #f #f #f #f #f b1 ...))])
+    [(_ name:id (dates d1 d2) (title t) (~seq (b1 ...) (~seq "\n" ...)) ...)
+     #`(rt:experience (work-exp #,(symbol->string (syntax->datum #'name)) d1 d2 #f t #f #f (list (list b1 ...) ...) #f))])
   )
 
 (define (rt:experience work-exp-info)
-  `(p ((class "experience-block")) ,@(work-exp-bullets work-exp-info)))
+  `(div ((class "experience-block"))
+    (div ((class "experience-head")) 
+         (div ((class "experience-title-name"))
+           (p ((class "experience-name")) ,(work-exp-company-name work-exp-info))
+           (p ((class "experience-title")) ,(work-exp-title work-exp-info)))
+         (p ((class "experience-date-range")) (em ,(work-exp-start-date work-exp-info) " - " ,(work-exp-end-date work-exp-info))))
+    (div ((class "experience-meta")))
+    (div ((class "experience-bullets")) ,(apply list-items (map (curry apply list-item) (work-exp-bullets work-exp-info))))))
 
 (define (languages->html langs)
   (map (default-tag-function 'p) langs))
