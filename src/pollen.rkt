@@ -140,6 +140,11 @@
      (add-coloring! #'l)
      #`(lang l '#,(hash-ref (current-shared-colortable) (syntax->datum #'l) #'l))]))
 
+(define-syntax (plangs stx)
+  (syntax-parse stx
+    [(_ l:string ...)
+     #'((plang l) ...)]))
+
 (define-syntax (experience stx)
   (syntax-parse stx
     #:datum-literals (dates title loc)
@@ -177,3 +182,24 @@
 (define (lang name color)
   (define name-color-style (apply (curry format "color: rgba(~a, ~a, ~a, ~a)") color))
   `(p ((class "lang-name") (style ,name-color-style)) ,name))
+
+;; Blog
+(define (rt:blog-desc title langs date)
+  `(div ((class "blog-post-header"))
+      (div ((class "blog-post-left"))
+        (p ((class "blog-post-title")) ,title)
+        (div ((class "blog-post-lang-wrapper"))
+          (div ((class "blog-post-languages")) ,@(languages->html langs))))
+      (p ((class "blog-post-date")) ,date)))
+  
+
+(define-syntax (blog-desc stx)
+  (syntax-parse stx
+    #:datum-literals (plangs)
+    [(_ t:string date:string (plangs l:string ...))
+     (for-each add-coloring!  (attribute l))
+     (define/syntax-parse langs
+                          (map (lambda (s) (list (syntax->datum s) (hash-ref
+                                                                     (current-shared-colortable)
+                                                                     (syntax->datum s)))) (attribute l)))
+     #'(rt:blog-desc t 'langs date)]))
