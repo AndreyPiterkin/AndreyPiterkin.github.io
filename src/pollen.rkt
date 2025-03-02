@@ -6,7 +6,6 @@
          racket/string
          pollen/core
          pollen/tag
-         racket/stxparam
          (for-syntax syntax/parse
                      racket/base
                      racket/list
@@ -14,7 +13,8 @@
                      racket/function
                      racket/draw
                      racket/class
-                     colors))
+                     colors
+                     "lang-coloring.rkt"))
 
 (provide (all-defined-out))
 
@@ -121,24 +121,6 @@
 
 (struct work-exp (company-name start-date end-date loc title languages technologies bullets blog-refs))
 (begin-for-syntax
-  (define lang-coloring-table (make-hash))
-  (define hue 0.5)
-  (define golden-ratio-conj 0.618033988749895)
-  (define sat 0.7)
-  (define val 0.8)
-  (define (gen-color) 
-      (set! hue (+ hue golden-ratio-conj))
-      (set! hue (- hue (floor hue)))
-      (define color (hsv->color (hsv hue sat val)))
-      (list (send color red) (send color green) (send color blue) (send color alpha)))
-
-  (define (add-coloring! lang)
-    (define lang^ (syntax->datum lang))
-    (if (hash-has-key? lang-coloring-table lang^)
-        (void)
-        (hash-set! lang-coloring-table lang^ (gen-color))))
-    
-
   (define-splicing-syntax-class bullet
     #:description "experience bullet point of shape (b ...)"
     #:attributes ((b 1))
@@ -155,15 +137,15 @@
   (syntax-parse stx
     [(_ l:string)
      (add-coloring! #'l)
-     #`(lang l '#,(hash-ref lang-coloring-table (syntax->datum #'l) #'l))]))
+     #`(lang l '#,(hash-ref (current-shared-colortable) (syntax->datum #'l) #'l))]))
 
 (define-syntax (experience stx)
   (syntax-parse stx
     #:datum-literals (dates title loc)
     [(_ name:id (dates d1 d2) (title t) (~optional (loc l:string) #:defaults ([l #'#f])) (~and b:bullet bl:lang-bullet) ...)
      (define/syntax-parse langs
-                          (map (lambda (s) (list (syntax->datum s) (hash-ref lang-coloring-table (syntax->datum s)))) (flatten (attribute bl.l))))
-     #` (rt:experience (work-exp #,(symbol->string (syntax->datum #'name)) d1 d2 l t 'langs #f (list (list b.b ...) ...) #f))]))
+                          (map (lambda (s) (list (syntax->datum s) (hash-ref (current-shared-colortable) (syntax->datum s)))) (flatten (attribute bl.l))))
+     #`(rt:experience (work-exp #,(symbol->string (syntax->datum #'name)) d1 d2 l t 'langs #f (list (list b.b ...) ...) #f))]))
 
 (define (rt:experience work-exp-info)
   `(div ((class "experience-block"))

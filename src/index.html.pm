@@ -14,7 +14,7 @@
     ~vempty[size 2]
     ~h3{Right now, I am}
     ~items{
-        ~{Learning Racket's macro system in Hack Your Own Language (CS 3620)}
+        ~{Learning ~plang{Racket}'s macro system in Hack Your Own Language (CS 3620)}
         ~{Taking Computer Architecture and Theory of Computation}
     }
 
