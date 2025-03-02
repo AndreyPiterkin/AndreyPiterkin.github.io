@@ -151,18 +151,11 @@
     (pattern (~seq ((~or (plang l:string) b) ...) (~seq "\n" ...))
              #:do [(for-each (lambda (lang) (add-coloring! lang)) (attribute l))])))
 
-(define-syntax-parameter plang
-  (lambda (stx)
-    (raise-syntax-error stx "outside of an experience block, plang doesn't make sense")))
-
-(begin-for-syntax
-  (define (make-plang-transformer)
-    (lambda (stx)
-      (syntax-parse stx
-        [(_ l:string)
-         (define/syntax-parse col
-            (hash-ref lang-coloring-table (syntax->datum #'l)))
-         #'(lang l 'col)]))))
+(define-syntax (plang stx)
+  (syntax-parse stx
+    [(_ l:string)
+     (add-coloring! #'l)
+     #`(lang l '#,(hash-ref lang-coloring-table (syntax->datum #'l) #'l))]))
 
 (define-syntax (experience stx)
   (syntax-parse stx
@@ -170,8 +163,7 @@
     [(_ name:id (dates d1 d2) (title t) (~optional (loc l:string) #:defaults ([l #'#f])) (~and b:bullet bl:lang-bullet) ...)
      (define/syntax-parse langs
                           (map (lambda (s) (list (syntax->datum s) (hash-ref lang-coloring-table (syntax->datum s)))) (flatten (attribute bl.l))))
-     #`(syntax-parameterize ([plang (make-plang-transformer)])
-         (rt:experience (work-exp #,(symbol->string (syntax->datum #'name)) d1 d2 l t 'langs #f (list (list b.b ...) ...) #f)))]))
+     #` (rt:experience (work-exp #,(symbol->string (syntax->datum #'name)) d1 d2 l t 'langs #f (list (list b.b ...) ...) #f))]))
 
 (define (rt:experience work-exp-info)
   `(div ((class "experience-block"))
