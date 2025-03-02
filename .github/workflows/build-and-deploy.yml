@@ -28,13 +28,13 @@ jobs:
           architecture: 'x64'
           distribution: 'full'
           variant: 'CS'
-          version: '8.10'
+          version: '8.15'
       
       - name: Install Pollen
         run: raco pkg install --auto pollen
 
       - name: Install Dependencies
-        run: raco pkg install --auto --skip-installed
+        run: raco pkg install --auto --skip-installed --name andreypiterkin-personal-website
           
       - name: Build and Publish Pollen Source Files
         run: mkdir build && raco pollen render src && raco pollen publish src build
