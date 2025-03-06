@@ -322,3 +322,11 @@ ul.dash > li:before {
     height: 0.625rem;
     border-radius: 50%;
 }
+
+.experience-bullets {
+  padding-top: 0.5em;
+}
+
+.bullet-text {
+  font-weight: 300;
+}
