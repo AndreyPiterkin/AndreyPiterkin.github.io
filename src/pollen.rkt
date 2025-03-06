@@ -20,6 +20,7 @@
 
 (define list-items (default-tag-function 'ul #:class "dash"))
 (define list-item (default-tag-function 'li))
+(define par (default-tag-function 'p))
 
 (define-syntax items
   (lambda (stx)
@@ -148,6 +149,7 @@
      #`(rt:experience (work-exp #,(symbol->string (syntax->datum #'name)) d1 d2 l t 'langs #f (list (list b.b ...) ...) #f))]))
 
 (define (rt:experience work-exp-info)
+  (println (map (curry apply par) (work-exp-bullets work-exp-info)))
   `(div ((class "experience-block"))
     (div ((class "experience-head")) 
          (div ((class "experience-title-name"))
@@ -156,7 +158,7 @@
            (div ((class "experience-langs")) ,@(languages->html (work-exp-languages work-exp-info))))
          (p ((class "experience-date-range")) (em ,(work-exp-start-date work-exp-info) " \u2014 " ,(work-exp-end-date work-exp-info))))
     (div ((class "experience-meta")))
-    (div ((class "experience-bullets")) ,(apply list-items (map (curry apply list-item) (work-exp-bullets work-exp-info))))))
+    (div ((class "experience-bullets")) ,@(map (lambda (words) `(div ((class "bullet-text")) ,@words)) (work-exp-bullets work-exp-info)))))
 
 (define (languages->html langs)
   (define (language->html lang)
