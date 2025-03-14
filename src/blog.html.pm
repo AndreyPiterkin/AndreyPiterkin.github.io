@@ -1,7 +1,9 @@
 #lang pollen
 
+
 ~vempty[size 1.5]
-~flex[rows (gap 2) (class "main")]{
-    ~blog-desc["what's the fun in macros" "2025/03/02" (plangs "Racket" "HTML" "CSS")]
-    ~blog-desc["what's the fun in macros" "2025/03/02" (plangs "Racket")]
+~p{My hub for thoughts, ideas, treatises, projects, and facetious comments.}
+~vempty[size 1]
+~flex[rows (gap 1) (class "main")]{
+    ~fill-in-blog[]
 }
