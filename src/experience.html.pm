@@ -2,7 +2,7 @@
 
 ~vempty[size 1.2]
 ~flex[rows (gap 2) (class "main")]{
-    ~experience[DataDog (dates "2024/09" "2024/12") (title "Software Engineer Intern")]{
+    ~experience[Datadog (dates "2024/09" "2024/12") (title "Software Engineer Intern")]{
         ~{Designed ~plang{Go} change-data-capture system for cloud resources and enhanced search capabilities in ~plang{TypeScript} UI.}
     }
     ~experience[Databricks (dates "2024/05" "2024/08") (title "Software Engineer Intern")]{
