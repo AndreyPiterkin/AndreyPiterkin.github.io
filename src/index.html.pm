@@ -15,13 +15,6 @@
     ~vempty[size 2]
     ~h3{Right now, I am}
     ~items{
-        ~{Working on a procedural simulation of the world in ~plang{Rust}}
-        ~{Relaxing at home with my family and my dog, Ozzy}
-    }
-
-    ~vempty[size 2]
-    ~h3{Soon, I will be}
-    ~items{
-        ~{Working at Databricks in Seattle full-time}
+        ~{Working at ~link[(url "https://www.databricks.com")]{Databricks} full-time on the Money team}
     }
 }
